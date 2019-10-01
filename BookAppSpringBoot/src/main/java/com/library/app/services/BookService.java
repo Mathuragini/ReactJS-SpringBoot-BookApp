@@ -12,6 +12,6 @@ public interface BookService {
 	List<Book> getAllBook();		//	Get All Book
 	Book findBookById(Long id); // find book by id - bookID
 	Book deleteBookById(Long id);	//	Delete Book
-	void updateBook(Book book);		//	Update Book
+	void updateBook(Long id ,Book book);		//	Update Book
 	
 }

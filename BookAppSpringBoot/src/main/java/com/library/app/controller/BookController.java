@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import com.library.app.entity.Book;
 import com.library.app.services.BookService;
 
-@CrossOrigin
+@CrossOrigin(origins="*")
 @RestController
 public class BookController {
 
@@ -43,9 +43,9 @@ public class BookController {
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
 	
-	@PutMapping("/updateBook")
-	public ResponseEntity<Book> updateBook(@Valid @RequestBody Book book) {
-		bookService.updateBook(book);
+	@PutMapping("/updateBook/{id}")
+	public ResponseEntity<Book> updateBook(@Valid @RequestBody Book book, @PathVariable("id") Long id) {
+		bookService.updateBook(id,book);
 		return new ResponseEntity<Book>(book, HttpStatus.OK);
 	}
 	
